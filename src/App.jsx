@@ -10,6 +10,10 @@ import AppTsView from './views/AppTsView';
 import MetahumanoEntityView from './views/MetahumanoEntityView';
 import MetahumanoRoutesView from './views/MetahumanoRoutesView';
 import AsincroniasView from './views/AsincroniasView';
+import TestAutenticacionView from './views/TestAutenticacionView';
+import TestAppView from './views/TestAppView';
+import TestIntegracionApiView from './views/TestIntegracionApiView';
+import UsuarioView from './views/UsuarioView';
 
 export default function App() {
   const [activeView, setActiveView] = useState('home');
@@ -27,10 +31,20 @@ export default function App() {
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
       const q = searchQuery.toLowerCase();
-      if (q.includes('metahumano') || q.includes('crud') || q.includes('sanitize') || q.includes('poder') || q.includes('estilo')) {
+      if (q.includes('usuario') || q.includes('login') || q.includes('registro') || q.includes('register') || q.includes('perfil') || q.includes('password') || q.includes('requireauth') || q.includes('requireroles')) {
+        setActiveView('usuario-sistema');
+      } else if (q.includes('metahumano') || q.includes('crud') || q.includes('sanitize') || q.includes('poder') || q.includes('estilo')) {
         setActiveView('metahumano-controller');
       } else if (q.includes('async') || q.includes('await') || q.includes('promesa') || q.includes('promise') || q.includes('asinc') || q.includes('callback')) {
         setActiveView('asincronias');
+      } else if (q.includes('bcrypt') || q.includes('jwt') || q.includes('hash') || q.includes('autenticac')) {
+        setActiveView('test-autenticacion');
+      } else if (q.includes('integracion') || q.includes('integración') || q.includes('supertest') || q.includes('401') || q.includes('403') || q.includes('role') || q.includes('rol')) {
+        setActiveView('test-integracion-api');
+      } else if (q.includes('arquitectura') || q.includes('instancia') || q.includes('app.test') || q.includes('router stack')) {
+        setActiveView('test-app');
+      } else if (q.includes('token') || q.includes('test')) {
+        setActiveView('test-autenticacion');
       }
     }
   }, [searchQuery]);
@@ -68,6 +82,10 @@ export default function App() {
           {activeView === 'metahumano-entity' && <MetahumanoEntityView />}
           {activeView === 'metahumano-routes' && <MetahumanoRoutesView />}
           {activeView === 'asincronias' && <AsincroniasView />}
+          {activeView === 'test-autenticacion' && <TestAutenticacionView />}
+          {activeView === 'test-app' && <TestAppView />}
+          {activeView === 'test-integracion-api' && <TestIntegracionApiView />}
+          {activeView === 'usuario-sistema' && <UsuarioView />}
         </main>
 
         <TableOfContents activeView={activeView} />

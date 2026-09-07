@@ -4,6 +4,8 @@ export default function Quiz({ title, questions }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
 
   const handleSelect = (qIndex, oIndex) => {
+    // Solo permite seleccionar una vez por pregunta
+    if (selectedAnswers[qIndex] !== undefined) return;
     setSelectedAnswers(prev => ({
       ...prev,
       [qIndex]: oIndex
@@ -12,20 +14,22 @@ export default function Quiz({ title, questions }) {
 
   return (
     <div className="quiz-container">
-      <h3>{title}</h3>
+      {title && <h3>{title}</h3>}
       {questions.map((q, qIndex) => {
         const selectedOption = selectedAnswers[qIndex];
         const isAnswered = selectedOption !== undefined;
-        const isCorrect = isAnswered && q.options[selectedOption].correct;
+        const isCorrect = isAnswered && selectedOption === q.correct;
 
         return (
           <div key={qIndex} className="quiz-question">
-            <div className="quiz-title">{q.question}</div>
+            <div className="quiz-title">
+              <strong>{qIndex + 1}.</strong> {q.question}
+            </div>
             <ul className="quiz-options">
               {q.options.map((opt, oIndex) => {
                 let optClass = 'quiz-option';
                 if (isAnswered) {
-                  if (opt.correct) {
+                  if (oIndex === q.correct) {
                     optClass += ' correct';
                   } else if (selectedOption === oIndex) {
                     optClass += ' incorrect';
@@ -33,19 +37,20 @@ export default function Quiz({ title, questions }) {
                 }
 
                 return (
-                  <li 
-                    key={oIndex} 
+                  <li
+                    key={oIndex}
                     className={optClass}
                     onClick={() => handleSelect(qIndex, oIndex)}
+                    style={{ cursor: isAnswered ? 'default' : 'pointer' }}
                   >
-                    {opt.text}
+                    {opt}
                   </li>
                 );
               })}
             </ul>
 
             {isAnswered && (
-              <div 
+              <div
                 className="quiz-explanation"
                 style={{
                   display: 'block',
@@ -54,7 +59,7 @@ export default function Quiz({ title, questions }) {
                   border: isCorrect ? '1px solid var(--tip-border)' : '1px solid var(--warn-border)'
                 }}
               >
-                <strong>{isCorrect ? '¡Correcto! ' : 'Explicación: '}</strong>
+                <strong>{isCorrect ? '✅ ¡Correcto! ' : '❌ Incorrecto — '}</strong>
                 {q.explanation}
               </div>
             )}

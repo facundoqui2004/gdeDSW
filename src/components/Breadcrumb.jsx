@@ -21,7 +21,15 @@ export default function Breadcrumb({ activeView, setActiveView }) {
                     ? 'metahumano.routes.ts'
                     : activeView === 'asincronias'
                       ? 'Asincronía en Node.js'
-                      : 'metahumano.controller.ts'}
+                      : activeView === 'test-autenticacion'
+                        ? 'Test — Autenticación'
+                        : activeView === 'test-app'
+                          ? 'Test — app.ts'
+                          : activeView === 'test-integracion-api'
+                            ? 'Test — Integración API'
+                            : activeView === 'usuario-sistema'
+                              ? 'Sistema de Usuarios'
+                              : 'metahumano.controller.ts'}
         </span>
       </div>
       <div>

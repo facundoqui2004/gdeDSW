@@ -78,6 +78,114 @@ export default function Sidebar({ activeView, setActiveView, isMobileOpen, onClo
       </div>
 
       <div className="sidebar-group">
+        <div className="sidebar-heading">Testing</div>
+        <ul className="sidebar-menu">
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'test-autenticacion' ? 'active' : ''}`}
+              onClick={() => handleNav('test-autenticacion')}
+            >
+              <span>🔑 Tests de Autenticación</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'test-autenticacion' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#auth-imports" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-imports'); }} className="sidebar-sub-link">1. Imports y setup</a></li>
+                <li><a href="#auth-hashing" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-hashing'); }} className="sidebar-sub-link">2. bcrypt — Hashing</a></li>
+                <li><a href="#auth-jwt-valid" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-jwt-valid'); }} className="sidebar-sub-link">3. JWT — Firmar & Verificar</a></li>
+                <li><a href="#auth-jwt-invalid" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-jwt-invalid'); }} className="sidebar-sub-link">4. JWT — Clave incorrecta</a></li>
+                <li><a href="#auth-jwt-malformed" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-jwt-malformed'); }} className="sidebar-sub-link">5. JWT — Mal formados</a></li>
+                <li><a href="#auth-assert-ref" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-assert-ref'); }} className="sidebar-sub-link">6. Referencia assert</a></li>
+                <li><a href="#auth-concepts" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-concepts'); }} className="sidebar-sub-link">7. Conceptos clave</a></li>
+                <li><a href="#auth-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('auth-quiz'); }} className="sidebar-sub-link">8. 📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'test-app' ? 'active' : ''}`}
+              onClick={() => handleNav('test-app')}
+            >
+              <span>🏗️ Tests de Arquitectura</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'test-app' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#tapp-full" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-full'); }} className="sidebar-sub-link">1. Código completo</a></li>
+                <li><a href="#tapp-imports" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-imports'); }} className="sidebar-sub-link">2. Imports</a></li>
+                <li><a href="#tapp-after" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-after'); }} className="sidebar-sub-link">3. Hook after()</a></li>
+                <li><a href="#tapp-test1" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-test1'); }} className="sidebar-sub-link">4. Test 1 — Instancia Express</a></li>
+                <li><a href="#tapp-test2" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-test2'); }} className="sidebar-sub-link">5. Test 2 — Router stack</a></li>
+                <li><a href="#tapp-or" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-or'); }} className="sidebar-sub-link">6. Operador ||</a></li>
+                <li><a href="#tapp-as-any" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-as-any'); }} className="sidebar-sub-link">7. Aserción as any</a></li>
+                <li><a href="#tapp-router-stack" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-router-stack'); }} className="sidebar-sub-link">8. _router.stack completo</a></li>
+                <li><a href="#tapp-lazy" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-lazy'); }} className="sidebar-sub-link">9. Lazy initialization</a></li>
+                <li><a href="#tapp-order" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-order'); }} className="sidebar-sub-link">10. Orden de ejecución</a></li>
+                <li><a href="#tapp-filter-map" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-filter-map'); }} className="sidebar-sub-link">11. .filter() y .map()</a></li>
+                <li><a href="#tapp-assert-ok" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-assert-ok'); }} className="sidebar-sub-link">12. assert.ok()</a></li>
+                <li><a href="#tapp-concepts" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-concepts'); }} className="sidebar-sub-link">13. Resumen conceptos</a></li>
+                <li><a href="#tapp-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('tapp-quiz'); }} className="sidebar-sub-link">14. 📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'test-integracion-api' ? 'active' : ''}`}
+              onClick={() => handleNav('test-integracion-api')}
+            >
+              <span>🔗 Tests de Integración</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'test-integracion-api' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#tint-full" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-full'); }} className="sidebar-sub-link">1. Código completo</a></li>
+                <li><a href="#tint-supertest" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-supertest'); }} className="sidebar-sub-link">2. supertest</a></li>
+                <li><a href="#tint-tokens" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-tokens'); }} className="sidebar-sub-link">3. Tokens de prueba</a></li>
+                <li><a href="#tint-1" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-1'); }} className="sidebar-sub-link">4. INT-1 — 401 Sin credenciales</a></li>
+                <li><a href="#tint-2" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-2'); }} className="sidebar-sub-link">5. INT-2 — 403 Rol insuficiente</a></li>
+                <li><a href="#tint-3" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-3'); }} className="sidebar-sub-link">6. INT-3 — 200 ADMIN ok</a></li>
+                <li><a href="#tint-4" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-4'); }} className="sidebar-sub-link">7. INT-4 — Logout</a></li>
+                <li><a href="#tint-5" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-5'); }} className="sidebar-sub-link">8. INT-5 — 404 Ruta inexistente</a></li>
+                <li><a href="#tint-flow" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-flow'); }} className="sidebar-sub-link">9. Flujo completo</a></li>
+                <li><a href="#tint-concepts" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-concepts'); }} className="sidebar-sub-link">10. Conceptos clave</a></li>
+                <li><a href="#tint-guia" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-guia'); }} className="sidebar-sub-link">11. 📖 Guía conceptual</a></li>
+                <li><a href="#tint-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('tint-quiz'); }} className="sidebar-sub-link">12. 📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
+        </ul>
+      </div>
+
+      <div className="sidebar-group">
+        <div className="sidebar-heading">Autenticación y Usuarios</div>
+        <ul className="sidebar-menu">
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'usuario-sistema' ? 'active' : ''}`}
+              onClick={() => handleNav('usuario-sistema')}
+            >
+              <span>👤 Sistema de Usuarios</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'usuario-sistema' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#usr-arquitectura" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-arquitectura'); }} className="sidebar-sub-link">🏗️ Arquitectura en capas</a></li>
+                <li><a href="#usr-entity" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-entity'); }} className="sidebar-sub-link">🗄️ Entidad Usuario</a></li>
+                <li><a href="#usr-routes" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-routes'); }} className="sidebar-sub-link">🔀 Rutas</a></li>
+                <li><a href="#usr-controller" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-controller'); }} className="sidebar-sub-link">🎮 Controller</a></li>
+                <li><a href="#usr-service" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-service'); }} className="sidebar-sub-link">⚙️ Service</a></li>
+                <li><a href="#usr-middleware" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-middleware'); }} className="sidebar-sub-link">🔐 Middleware de Auth</a></li>
+                <li><a href="#usr-seguridad" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-seguridad'); }} className="sidebar-sub-link">🛡️ Seguridad</a></li>
+                <li><a href="#usr-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('usr-quiz'); }} className="sidebar-sub-link">📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
+        </ul>
+      </div>
+
+      <div className="sidebar-group">
         <div className="sidebar-heading">Infraestructura y Middlewares</div>
         <ul className="sidebar-menu">
           <li>
@@ -205,12 +313,6 @@ export default function Sidebar({ activeView, setActiveView, isMobileOpen, onClo
       <div className="sidebar-group">
         <div className="sidebar-heading">Próximos Módulos</div>
         <ul className="sidebar-menu">
-          <li>
-            <button className="sidebar-btn" style={{ opacity: 0.6, cursor: 'not-allowed' }}>
-              <span>🔒 usuario.controller</span>
-              <span className="status-badge status-soon">Pronto</span>
-            </button>
-          </li>
           <li>
             <button className="sidebar-btn" style={{ opacity: 0.6, cursor: 'not-allowed' }}>
               <span>🔒 burocrata.controller</span>
