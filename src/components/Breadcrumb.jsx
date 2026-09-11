@@ -29,7 +29,13 @@ export default function Breadcrumb({ activeView, setActiveView }) {
                             ? 'Test — Integración API'
                             : activeView === 'usuario-sistema'
                               ? 'Sistema de Usuarios'
-                              : 'metahumano.controller.ts'}
+                              : activeView === 'usuario-entity'
+                                ? 'usuario.entity.ts'
+                                : activeView === 'auth-middleware'
+                                  ? 'auth.middleware.ts'
+                                  : activeView === 'seguridad'
+                                    ? 'Seguridad Front & Back'
+                                    : 'metahumano.controller.ts'}
         </span>
       </div>
       <div>

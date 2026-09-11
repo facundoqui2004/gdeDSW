@@ -117,6 +117,45 @@ export default function TableOfContents({ activeView }) {
     { id: 'usr-quiz', title: '8. 📝 Quiz de Estudio' },
   ];
 
+  const usuarioEntityHeadings = [
+    { id: 'uent-codigo', title: '1. Código completo' },
+    { id: 'uent-imports', title: '2. Imports & Decoradores' },
+    { id: 'uent-enum', title: '3. Enum UserRole' },
+    { id: 'uent-clase', title: '4. Declaración de Clase' },
+    { id: 'uent-propiedades', title: '5. Propiedades y Columnas' },
+    { id: 'uent-relaciones', title: '6. Relaciones OneToOne' },
+    { id: 'uent-hooks', title: '7. Hooks de Validación' },
+    { id: 'uent-glosario', title: '8. Glosario Rápido' },
+    { id: 'uent-quiz', title: '9. 📝 Quiz de Estudio' },
+  ];
+
+  const authMiddlewareHeadings = [
+    { id: 'amw-concepto', title: '1. Concepto & Flujo' },
+    { id: 'amw-codigo', title: '2. Código completo' },
+    { id: 'amw-imports', title: '3. Imports & JWT' },
+    { id: 'amw-interface', title: '4. AuthedRequest' },
+    { id: 'amw-requireauth', title: '5. requireAuth' },
+    { id: 'amw-requireroles', title: '6. requireRoles' },
+    { id: 'amw-codigos', title: '7. 401 vs 403' },
+    { id: 'amw-glosario', title: '8. Glosario Rápido' },
+    { id: 'amw-quiz', title: '9. 📝 Quiz de Estudio' },
+  ];
+
+  const seguridadHeadings = [
+    { id: 'sec-panorama', title: '1. Mapa de Seguridad' },
+    { id: 'sec-front', title: '2. Roles en Frontend' },
+    { id: 'sec-back', title: '3. Seguridad en Backend' },
+    { id: 'sec-matriz', title: '4. Matriz de Rutas API' },
+    { id: 'sec-cookies', title: '5. Cookies Anti-XSS/CSRF' },
+    { id: 'sec-idor', title: '6. Prevención IDOR / BOLA' },
+    { id: 'sec-bcrypt', title: '7. bcrypt & Contraseñas' },
+    { id: 'sec-sqli', title: '8. Inyección SQL & Sanitización' },
+    { id: 'sec-dominio', title: '9. Integridad de Dominio' },
+    { id: 'sec-tests', title: '10. Tests de Seguridad' },
+    { id: 'sec-por-que-es-buena', title: '11. Mitigación OWASP' },
+    { id: 'sec-quiz', title: '12. 📝 Quiz de Estudio' },
+  ];
+
   const headingsMap = {
     'home': homeHeadings,
     'middlewares': middlewareHeadings,
@@ -127,6 +166,9 @@ export default function TableOfContents({ activeView }) {
     'test-app': testAppHeadings,
     'test-integracion-api': testIntegracionHeadings,
     'usuario-sistema': usuarioHeadings,
+    'usuario-entity': usuarioEntityHeadings,
+    'auth-middleware': authMiddlewareHeadings,
+    'seguridad': seguridadHeadings,
   };
 
   const headings = headingsMap[activeView] || controllerHeadings;

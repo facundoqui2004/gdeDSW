@@ -182,6 +182,62 @@ export default function Sidebar({ activeView, setActiveView, isMobileOpen, onClo
               </ul>
             )}
           </li>
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'usuario-entity' ? 'active' : ''}`}
+              onClick={() => handleNav('usuario-entity')}
+            >
+              <span>🧬 usuario.entity.ts</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+          </li>
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'auth-middleware' ? 'active' : ''}`}
+              onClick={() => handleNav('auth-middleware')}
+            >
+              <span>🔐 auth.middleware.ts</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'auth-middleware' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#amw-concepto" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-concepto'); }} className="sidebar-sub-link">1. Concepto & Flujo</a></li>
+                <li><a href="#amw-codigo" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-codigo'); }} className="sidebar-sub-link">2. Código completo</a></li>
+                <li><a href="#amw-imports" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-imports'); }} className="sidebar-sub-link">3. Imports & JWT</a></li>
+                <li><a href="#amw-interface" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-interface'); }} className="sidebar-sub-link">4. AuthedRequest</a></li>
+                <li><a href="#amw-requireauth" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-requireauth'); }} className="sidebar-sub-link">5. requireAuth</a></li>
+                <li><a href="#amw-requireroles" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-requireroles'); }} className="sidebar-sub-link">6. requireRoles</a></li>
+                <li><a href="#amw-codigos" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-codigos'); }} className="sidebar-sub-link">7. 401 vs 403</a></li>
+                <li><a href="#amw-glosario" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-glosario'); }} className="sidebar-sub-link">8. Glosario Rápido</a></li>
+                <li><a href="#amw-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('amw-quiz'); }} className="sidebar-sub-link">9. 📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'seguridad' ? 'active' : ''}`}
+              onClick={() => handleNav('seguridad')}
+            >
+              <span>🛡️ Seguridad Front & Back</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'seguridad' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#sec-panorama" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-panorama'); }} className="sidebar-sub-link">1. Mapa de Seguridad</a></li>
+                <li><a href="#sec-front" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-front'); }} className="sidebar-sub-link">2. Roles en Frontend</a></li>
+                <li><a href="#sec-back" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-back'); }} className="sidebar-sub-link">3. Seguridad en Backend</a></li>
+                <li><a href="#sec-matriz" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-matriz'); }} className="sidebar-sub-link">4. Matriz de Rutas API</a></li>
+                <li><a href="#sec-cookies" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-cookies'); }} className="sidebar-sub-link">5. Cookies Anti-XSS/CSRF</a></li>
+                <li><a href="#sec-idor" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-idor'); }} className="sidebar-sub-link">6. Prevención IDOR / BOLA</a></li>
+                <li><a href="#sec-bcrypt" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-bcrypt'); }} className="sidebar-sub-link">7. bcrypt & Contraseñas</a></li>
+                <li><a href="#sec-sqli" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-sqli'); }} className="sidebar-sub-link">8. Inyección SQL & Sanitización</a></li>
+                <li><a href="#sec-dominio" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-dominio'); }} className="sidebar-sub-link">9. Integridad de Dominio</a></li>
+                <li><a href="#sec-tests" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-tests'); }} className="sidebar-sub-link">10. Tests de Seguridad</a></li>
+                <li><a href="#sec-por-que-es-buena" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-por-que-es-buena'); }} className="sidebar-sub-link">11. Mitigación OWASP</a></li>
+                <li><a href="#sec-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('sec-quiz'); }} className="sidebar-sub-link">12. 📝 Quiz de Estudio</a></li>
+              </ul>
+            )}
+          </li>
         </ul>
       </div>
 
@@ -273,6 +329,29 @@ export default function Sidebar({ activeView, setActiveView, isMobileOpen, onClo
                 <li><a href="#routes-order" onClick={(e) => { e.preventDefault(); scrollToAnchor('routes-order'); }} className="sidebar-sub-link">Orden de Rutas</a></li>
                 <li><a href="#routes-design" onClick={(e) => { e.preventDefault(); scrollToAnchor('routes-design'); }} className="sidebar-sub-link">Decisiones de Diseño</a></li>
                 <li><a href="#routes-router" onClick={(e) => { e.preventDefault(); scrollToAnchor('routes-router'); }} className="sidebar-sub-link">express.Router()</a></li>
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <button
+              className={`sidebar-btn ${activeView === 'usuario-entity' ? 'active' : ''}`}
+              onClick={() => handleNav('usuario-entity')}
+            >
+              <span>🧬 usuario.entity</span>
+              <span className="status-badge status-ready">Nuevo</span>
+            </button>
+            {activeView === 'usuario-entity' && (
+              <ul className="sidebar-sub-menu">
+                <li><a href="#uent-codigo" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-codigo'); }} className="sidebar-sub-link">1. Código completo</a></li>
+                <li><a href="#uent-imports" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-imports'); }} className="sidebar-sub-link">2. Imports & Decoradores</a></li>
+                <li><a href="#uent-enum" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-enum'); }} className="sidebar-sub-link">3. Enum UserRole</a></li>
+                <li><a href="#uent-clase" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-clase'); }} className="sidebar-sub-link">4. Declaración de Clase</a></li>
+                <li><a href="#uent-propiedades" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-propiedades'); }} className="sidebar-sub-link">5. Propiedades y Columnas</a></li>
+                <li><a href="#uent-relaciones" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-relaciones'); }} className="sidebar-sub-link">6. Relaciones OneToOne</a></li>
+                <li><a href="#uent-hooks" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-hooks'); }} className="sidebar-sub-link">7. Hooks de Validación</a></li>
+                <li><a href="#uent-glosario" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-glosario'); }} className="sidebar-sub-link">8. Glosario Rápido</a></li>
+                <li><a href="#uent-quiz" onClick={(e) => { e.preventDefault(); scrollToAnchor('uent-quiz'); }} className="sidebar-sub-link">9. 📝 Quiz de Estudio</a></li>
               </ul>
             )}
           </li>

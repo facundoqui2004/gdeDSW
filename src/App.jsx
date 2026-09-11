@@ -14,6 +14,9 @@ import TestAutenticacionView from './views/TestAutenticacionView';
 import TestAppView from './views/TestAppView';
 import TestIntegracionApiView from './views/TestIntegracionApiView';
 import UsuarioView from './views/UsuarioView';
+import UsuarioEntityView from './views/UsuarioEntityView';
+import AuthMiddlewareView from './views/AuthMiddlewareView';
+import SeguridadView from './views/SeguridadView';
 
 export default function App() {
   const [activeView, setActiveView] = useState('home');
@@ -31,7 +34,9 @@ export default function App() {
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
       const q = searchQuery.toLowerCase();
-      if (q.includes('usuario') || q.includes('login') || q.includes('registro') || q.includes('register') || q.includes('perfil') || q.includes('password') || q.includes('requireauth') || q.includes('requireroles')) {
+      if (q.includes('seguridad') || q.includes('rbac') || q.includes('protectedroute') || q.includes('xss') || q.includes('csrf') || q.includes('sqli') || q.includes('inyeccion')) {
+        setActiveView('seguridad');
+      } else if (q.includes('usuario') || q.includes('login') || q.includes('registro') || q.includes('register') || q.includes('perfil') || q.includes('password') || q.includes('requireauth') || q.includes('requireroles')) {
         setActiveView('usuario-sistema');
       } else if (q.includes('metahumano') || q.includes('crud') || q.includes('sanitize') || q.includes('poder') || q.includes('estilo')) {
         setActiveView('metahumano-controller');
@@ -86,6 +91,9 @@ export default function App() {
           {activeView === 'test-app' && <TestAppView />}
           {activeView === 'test-integracion-api' && <TestIntegracionApiView />}
           {activeView === 'usuario-sistema' && <UsuarioView />}
+          {activeView === 'usuario-entity' && <UsuarioEntityView />}
+          {activeView === 'auth-middleware' && <AuthMiddlewareView />}
+          {activeView === 'seguridad' && <SeguridadView />}
         </main>
 
         <TableOfContents activeView={activeView} />
